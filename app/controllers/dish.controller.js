@@ -53,7 +53,10 @@ exports.findAll = (req, res) => {
                         message:
                               err.message || "Some error occurred while retrieving dishes."
                   });
-            else res.send(data);
+            else {
+                  res.setHeader('Access-Control-Allow-Origin', '*');
+                  res.send(data);   
+            }
       });
 };
 
